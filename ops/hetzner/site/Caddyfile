@@ -1,0 +1,12 @@
+# Code to Career — static site on Hetzner
+# Point codetocareer.org DNS A/AAAA to this VPS.
+
+codetocareer.org, www.codetocareer.org {
+	root * /var/www/codetocareer
+	file_server
+	encode gzip zstd
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+	}
+}

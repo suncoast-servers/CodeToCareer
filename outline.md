@@ -1,4 +1,4 @@
-# Data Engineering 101 Outline
+# Code to Career — curriculum outline
 
 **Site paths (living syllabus):** Path 0 [`content/path-00-setup/`](content/path-00-setup/) through Path 10 [`content/path-10-career/`](content/path-10-career/). Lessons ship as MDX; labs in [`labs/compose/`](labs/compose/).
 

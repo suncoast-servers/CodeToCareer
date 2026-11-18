@@ -1,0 +1,57 @@
+{
+  "issuer": {
+    "name": "Code to Career",
+    "url": "https://codetocareer.org",
+    "logo": "https://codetocareer.org/favicon.svg"
+  },
+  "tracks": [
+    {
+      "id": "ctc-coder-foundations",
+      "title": "Coder Foundations",
+      "trackSlug": "coder",
+      "level": "foundations",
+      "hoursEstimate": 40,
+      "requirements": ["Complete Path 0", "Complete path-02-python exercises", "Portfolio README"]
+    },
+    {
+      "id": "ctc-ai-assisted-dev",
+      "title": "AI-Assisted Developer",
+      "trackSlug": "ai-assisted-coder",
+      "level": "intermediate",
+      "hoursEstimate": 25,
+      "requirements": ["Coder Foundations", "Path 0 learn-with-ai lesson", "Documented AI review policy in portfolio"]
+    },
+    {
+      "id": "ctc-software-engineer",
+      "title": "Software Engineer Foundations",
+      "trackSlug": "software-engineer",
+      "level": "intermediate",
+      "hoursEstimate": 120,
+      "requirements": ["Coder Foundations", "Data structures module (coming soon)", "Two capstone repos"]
+    },
+    {
+      "id": "ctc-security-fundamentals",
+      "title": "Ethical Security Fundamentals",
+      "trackSlug": "security",
+      "level": "intermediate",
+      "hoursEstimate": 80,
+      "requirements": ["Coder Foundations", "Security labs (coming soon)", "Responsible disclosure write-up"]
+    },
+    {
+      "id": "ctc-data-engineer",
+      "title": "Data Engineer",
+      "trackSlug": "data-engineer",
+      "level": "advanced",
+      "hoursEstimate": 200,
+      "requirements": ["Path 0", "Paths 1–9", "Batch capstone lab", "Public portfolio repo"]
+    },
+    {
+      "id": "ctc-data-scientist",
+      "title": "Data Scientist Foundations",
+      "trackSlug": "data-scientist",
+      "level": "advanced",
+      "hoursEstimate": 160,
+      "requirements": ["Coder Foundations", "Statistics module (coming soon)", "Modeling project"]
+    }
+  ]
+}

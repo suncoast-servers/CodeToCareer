@@ -1,6 +1,6 @@
 # My data engineering journey
 
-Learning log for [Data Engineering 101](https://github.com/TheDevWhoSaysNI/DataEngineering101).
+Learning log for [Code to Career](https://codetocareer.org) · [repo](https://github.com/suncoast-servers/codetocareer).
 
 ## Progress
 

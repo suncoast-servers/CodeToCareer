@@ -47,6 +47,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: dataengineering101
+          projectName: codetocareer
           directory: apps/web/dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}

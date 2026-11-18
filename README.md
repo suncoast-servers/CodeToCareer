@@ -1,20 +1,20 @@
-# Data Engineering 101
+# Code to Career
 
-Free, open-source curriculum from **zero to data engineer**—structured paths, Docker labs, and an honest take on **learning with AI**.
+**[codetocareer.org](https://codetocareer.org)** — free, open-source tracks from zero to tech careers (Docker labs, certificates, AI-aware practice).
 
-**Start here:** [Path 0 lessons](content/path-00-setup/welcome.mdx) · **Live site:** deploy from [`apps/web`](apps/web) (set `SITE_URL` for your domain) · **Syllabus:** [outline.md](outline.md)
+**Start:** [Path 0](content/path-00-setup/welcome.mdx) · **Tracks:** [content/tracks/](content/tracks/) · **Syllabus:** [outline.md](outline.md)
 
 ## Repo map
 
-| Path | Location |
+| Area | Location |
 |------|-----------|
-| Lessons (source) | [`content/`](content/) |
-| Site (Astro Starlight, minimal skin) | [`apps/web/`](apps/web/) |
+| Lessons | [`content/`](content/) |
+| Site (minimal Starlight) | [`apps/web/`](apps/web/) |
 | Labs | [`labs/compose/`](labs/compose/) |
-| Exercises & solutions | [`labs/exercises/`](labs/exercises/) · [`labs/solutions/`](labs/solutions/) |
-| Support & affiliates | [`docs/disclosure.md`](docs/disclosure.md) · [Support page](content/support.mdx) |
+| Certificates catalog | [`certificates/`](certificates/) |
+| Hetzner site deploy | [`ops/hetzner/site/`](ops/hetzner/site/) |
 
-## Quick lab start
+## Labs
 
 ```bash
 cd labs/compose/core
@@ -22,9 +22,7 @@ cp .env.example .env
 docker compose --profile core up -d
 ```
 
-VPS deploy: [labs/compose/DEPLOY.md](labs/compose/DEPLOY.md).
-
-## Run the site locally
+## Site locally
 
 ```bash
 cd apps/web
@@ -32,8 +30,10 @@ npm install
 npm run dev
 ```
 
-## Contribute
+Build uses `SITE_URL=https://codetocareer.org` by default.
 
-[CONTRIBUTING.md](CONTRIBUTING.md) · [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+## GitHub rename
 
-MIT License — see [LICENSE](LICENSE).
+Rename to **CodeToCareer** on GitHub and locally: [docs/GITHUB_RENAME.md](docs/GITHUB_RENAME.md).
+
+MIT License — [LICENSE](LICENSE).

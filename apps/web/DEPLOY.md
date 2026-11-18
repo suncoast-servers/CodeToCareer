@@ -20,7 +20,7 @@ Content is synced from `../../content` on `predev` / `prebuild`.
 | Root directory | `apps/web` |
 | Build command | `npm ci && npm run build` |
 | Output directory | `dist` |
-| Environment | `SITE_URL=https://yourdomain.com` |
+| Environment | `SITE_URL=https://codetocareer.org` |
 
 **GitHub Action:** `.github/workflows/deploy-site.yml` deploys on push to `main` when `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets are set.
 

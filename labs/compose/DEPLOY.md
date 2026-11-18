@@ -33,8 +33,8 @@ Log out and back in so the `docker` group applies.
 ## 3. Clone and configure
 
 ```bash
-git clone https://github.com/TheDevWhoSaysNI/DataEngineering101.git
-cd DataEngineering101/labs/compose/core
+git clone https://github.com/suncoast-servers/codetocareer.git
+cd codetocareer/labs/compose/core
 cp .env.example .env
 ```
 

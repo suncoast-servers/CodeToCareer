@@ -3,27 +3,26 @@ import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import sitemap from "@astrojs/sitemap";
 
-const site =
-	process.env.SITE_URL ?? "https://dataengineering101.pages.dev";
+const site = process.env.SITE_URL ?? "https://codetocareer.org";
 
 const organizationJsonLd = JSON.stringify({
 	"@context": "https://schema.org",
 	"@type": "Organization",
-	name: "Data Engineering 101",
+	name: "Code to Career",
 	url: site,
 	description:
-		"Free open-source curriculum from zero to data engineer with Docker labs.",
+		"Free open-source career tracks from zero to tech jobs—with Docker labs.",
 });
 
 const courseJsonLd = JSON.stringify({
 	"@context": "https://schema.org",
 	"@type": "Course",
-	name: "Data Engineering 101",
+	name: "Code to Career",
 	description:
-		"Structured paths for Python, SQL, pipelines, and capstone projects.",
+		"Ordered tracks for coders, AI-assisted development, and data engineering.",
 	provider: {
 		"@type": "Organization",
-		name: "Data Engineering 101",
+		name: "Code to Career",
 	},
 	isAccessibleForFree: true,
 });
@@ -34,19 +33,19 @@ export default defineConfig({
 	trailingSlash: "always",
 	integrations: [
 		starlight({
-			title: "Data Engineering 101",
+			title: "Code to Career",
 			description:
-				"Free path from zero to data engineer — lessons, labs, and AI-aware workflow.",
+				"Free tracks from zero to tech careers—labs, certificates, open source.",
 			social: [
 				{
 					icon: "github",
 					label: "GitHub",
-					href: "https://github.com/TheDevWhoSaysNI/DataEngineering101",
+					href: "https://github.com/suncoast-servers/codetocareer",
 				},
 			],
 			editLink: {
 				baseUrl:
-					"https://github.com/TheDevWhoSaysNI/DataEngineering101/edit/main/content/",
+					"https://github.com/suncoast-servers/codetocareer/edit/main/content/",
 			},
 			customCss: [],
 			head: [
@@ -64,15 +63,25 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: "Start",
-					items: [{ slug: "index" }, { slug: "support" }],
+					items: [
+						{ slug: "index" },
+						{ slug: "tracks" },
+						{ slug: "certificates" },
+						{ slug: "support" },
+					],
+				},
+				{
+					label: "Career tracks",
+					items: [{ autogenerate: { directory: "tracks" } }],
 				},
 				{
 					label: "Path 0 — Setup",
 					items: [{ autogenerate: { directory: "path-00-setup" } }],
 				},
 				{
-					label: "Paths 1–10",
+					label: "Data engineer paths",
 					items: [
+						{ slug: "tracks/data-engineer" },
 						{ slug: "path-01-mindset" },
 						{ slug: "path-02-python" },
 						{ slug: "path-03-sql" },
