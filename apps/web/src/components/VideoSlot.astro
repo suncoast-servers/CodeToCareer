@@ -1,0 +1,19 @@
+---
+const { youtube = "" } = Astro.props;
+const id = String(youtube).trim();
+---
+
+{
+	id && (
+		<section class="ctc-panel">
+			<h2>Watch first (short)</h2>
+			<iframe
+				class="ctc-video"
+				src={`https://www.youtube-nocookie.com/embed/${id}`}
+				title="Lesson video"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				allowfullscreen
+			/>
+		</section>
+	)
+}

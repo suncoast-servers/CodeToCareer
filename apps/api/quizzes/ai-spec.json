@@ -1,0 +1,16 @@
+{
+  "id": "ai-spec",
+  "title": "Spec",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What do you write before asking a model to code?",
+      "choices": [
+        "The outcome, inputs, and how you will check it",
+        "Only the words 'write the code'",
+        "Your API keys"
+      ],
+      "answer": 0
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "file": "queries.sql",
+  "mustInclude": ["select email", "from lab.customers", "where email ="]
+}

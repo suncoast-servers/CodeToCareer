@@ -1,0 +1,4 @@
+{
+  "file": "queries.sql",
+  "mustInclude": ["inner join", "lab.orders", "lab.customers"]
+}

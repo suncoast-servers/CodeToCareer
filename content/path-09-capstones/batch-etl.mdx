@@ -1,0 +1,43 @@
+---
+title: Batch ETL capstone
+description: Load a CSV into staging and roll it up by day.
+sidebar:
+  order: 2
+---
+
+import LessonFrame from "@ctc/LessonFrame.astro";
+
+<LessonFrame lesson="path-09-capstones/batch-etl" quiz="sql-etl" lab="">
+
+## Outcome
+
+You can explain a batch job that loads orders, then writes one row per day.
+
+## Theory
+
+Extract: read `orders.csv`. Load: insert into `staging.orders`. Transform: `GROUP BY order_date` into `analytics.daily_order_counts`. The load uses `ON CONFLICT` so running it twice updates the day instead of duplicating it. That is idempotent.
+
+The script is `labs/compose/capstone-batch/etl/run_etl.py`. Read it before you run it.
+
+## Do this
+
+From `labs/compose/capstone-batch`:
+
+```bash
+docker compose --profile batch up -d postgres
+docker compose --profile batch run --rm etl
+```
+
+Then in Postgres:
+
+```sql
+SELECT * FROM analytics.daily_order_counts ORDER BY order_date;
+```
+
+In your own words, write three sentences: what staging is for, what the daily table is for, and what happens if you run the job again.
+
+## Next
+
+Put the repo link in your portfolio README and the [certificate checklist](/certificates/).
+
+</LessonFrame>

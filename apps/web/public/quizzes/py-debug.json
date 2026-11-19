@@ -1,0 +1,15 @@
+{
+  "id": "py-debug",
+  "title": "Debugging",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "First move when a test fails?",
+      "choices": [
+        "Read the assertion and the line it names",
+        "Delete the test",
+        "Paste secrets into chat"
+      ]
+    }
+  ]
+}

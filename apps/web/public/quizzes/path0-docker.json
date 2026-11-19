@@ -1,0 +1,15 @@
+{
+  "id": "path0-docker",
+  "title": "Docker",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What does Compose do?",
+      "choices": [
+        "Starts the services listed in the YAML file",
+        "Replaces SQL",
+        "Publishes your secrets"
+      ]
+    }
+  ]
+}

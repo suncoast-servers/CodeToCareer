@@ -1,0 +1,28 @@
+---
+title: Refuse bad code
+description: Reject suggestions you cannot explain or that fail the check.
+sidebar:
+  order: 3
+---
+
+import LessonFrame from "@ctc/LessonFrame.astro";
+
+<LessonFrame lesson="path-ai/03-refuse-bad-code" quiz="ai-refuse">
+
+## Outcome
+
+You can say no to a suggestion that fails a test or hides a bug.
+
+## Theory
+
+Fast and wrong is still wrong. If the check fails, the suggestion failed. If you cannot explain a line in an interview, do not ship it. Cite what the model did in your notes so you remember which parts were yours.
+
+## Do this
+
+Ask a tool to "fix" `average.py`. If it still fails `node labs/check.mjs path-02-python-05`, reject that fix and write the repair yourself. Add a line to `notes/ai-policy.md`: what you refused and why.
+
+## Next
+
+[Coder track](/tracks/coder/) certificate checklist, then [SQL](/path-03-sql/).
+
+</LessonFrame>

@@ -1,36 +1,29 @@
 ---
 title: Certificates
-description: Verifiable track completion for LinkedIn and freelance profiles.
+description: Free completion records you can verify and add to LinkedIn.
 sidebar:
-  order: 6
+  order: 1
 ---
 
-Code to Career certificates mean you **finished published requirements** in the open repo—not a paid PDF mill.
+Certificates mean you finished the published drills. They are not a paid PDF.
 
-## How to earn one
+## Earn one
 
-1. Finish a [career track](/tracks/) (see `certificates/catalog.json` on GitHub).
-2. Keep **public proof** (GitHub portfolio, lab screenshots, capstone).
-3. Request verification (Phase 1: self-attest + public checklist; Phase 2: signed badge).
+1. Finish the track lessons and lab checks.
+2. Keep a public portfolio repo.
+3. Run `node certificates/issue.mjs <track-id> "Your Name"` on a machine that holds the issuer key.
+4. Open [Verify](/certificates/verify/?id=) with your id.
+
+Track ids live in `certificates/catalog.json` (`ctc-coder-foundations`, `ctc-ai-assisted-dev`, `ctc-data-engineer`).
 
 ## LinkedIn
 
-Use **Add profile section → Licenses & certifications**, or the prefilled link for your track (generate from catalog):
+Add the certificate by hand, or start from this prefilled form and replace the id:
 
-Example (Data Engineer):
+[Add Coder Foundations](https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=Coder%20Foundations&organizationName=Code%20to%20Career&issueYear=2026&issueMonth=11&certUrl=https%3A%2F%2Fcodetocareer.org%2Fcertificates%2Fverify%2F&certId=ctc-coder-foundations)
 
-[Add Data Engineer certificate on LinkedIn](https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=Data%20Engineer&organizationName=Code%20to%20Career&issueYear=2026&issueMonth=3&certUrl=https%3A%2F%2Fcodetocareer.org%2Fcertificates%2F&certId=ctc-data-engineer)
+Put your verify URL in the certificate URL field: `https://codetocareer.org/certificates/verify/?id=YOUR_ID`
 
-Replace `certId` with your issued ID when verification launches.
+## Upwork and Fiverr
 
-## Upwork & Fiverr
-
-There is **no official certificate import**. Do this instead:
-
-- Link `https://codetocareer.org` and your **GitHub portfolio** in profile.
-- Paste verification URL in project descriptions.
-- Use certificates as **talking points** in proposals—not as a platform badge.
-
-## Technical roadmap
-
-Open Badges 3.0 issuer on your Hetzner stack (same infra story as the future tutor LLM). Details: [docs/certificates.md](https://github.com/suncoast-servers/codetocareer/blob/main/docs/certificates.md).
+Those sites do not import certificates. Link your verify URL and your GitHub portfolio in the profile text.

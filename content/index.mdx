@@ -1,34 +1,44 @@
 ---
 title: Code to Career
-description: Free, open-source tracks from zero to tech jobs—start with Path 0, specialize later.
+description: Free practice-first tracks from zero to coder, AI-assisted developer, or data engineer.
 template: splash
 hero:
-  tagline: A map from zero to a tech career—not a million random videos.
+  tagline: A free path from zero to real skills. Short theory, then you type it until it sticks.
   actions:
     - text: Start Path 0
       link: /path-00-setup/welcome/
       icon: right-arrow
-    - text: Pick a career track
+    - text: Pick a track
       link: /tracks/
       icon: right-arrow
       variant: minimal
-    - text: GitHub
-      link: https://github.com/suncoast-servers/codetocareer
-      icon: external
-      variant: minimal
 ---
 
-## What this is
+import { Card, CardGrid } from "@astrojs/starlight/components";
 
-**Code to Career** ([codetocareer.org](https://codetocareer.org)) is free, open source (MIT), and built for driven beginners. **Path 0** gets anyone to a working laptop stack; **tracks** point toward roles like **data engineer**, **coder**, or **AI-assisted developer**.
+## Start here
 
-## How to use it
+You can learn this on YouTube. You still need an order, drills, and a way to know you can do it. This site is that order. Reading is free. Accounts are optional.
 
-1. [Path 0 — Setup](/path-00-setup/welcome/) (everyone).
-2. [Choose a career track](/tracks/) — we recommend **[Data Engineer](/tracks/data-engineer/)** for depth today.
-3. Run [labs](/labs/) with Docker on your PC or a Hetzner VPS.
-4. Earn a [certificate](/certificates/) and add it to LinkedIn.
+<CardGrid>
+	<Card title="Coder" icon="pencil">
+		Read, write, and debug small Python programs. [Open the track](/tracks/coder/).
+	</Card>
+	<Card title="AI-assisted developer" icon="rocket">
+		Use the model for speed, then own the diff. [Open the track](/tracks/ai-assisted-coder/).
+	</Card>
+	<Card title="Data engineer" icon="setting">
+		SQL, pipelines, and a batch capstone. [Open the track](/tracks/data-engineer/).
+	</Card>
+	<Card title="Data scientist" icon="magnifier">
+		After Python and SQL. [See the staged track](/tracks/data-scientist/).
+	</Card>
+</CardGrid>
 
-## Site & repo
+## How a lesson works
 
-The live site is this repo built with Astro. Deploy to your VPS: [`ops/hetzner/site/`](https://github.com/suncoast-servers/codetocareer/tree/main/ops/hetzner/site).
+1. A few minutes of theory.
+2. Something you type and run.
+3. A checkpoint, plus a lab check on your machine.
+
+Nothing you need in order to learn is behind a paywall. YouTube and disclosed tool links are how the project can stay free. Details: [Support](/support/).

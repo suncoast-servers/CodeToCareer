@@ -1,0 +1,28 @@
+---
+title: Write the spec first
+description: Tell the model the outcome and the check before it writes code.
+sidebar:
+  order: 1
+---
+
+import LessonFrame from "@ctc/LessonFrame.astro";
+
+<LessonFrame lesson="path-ai/01-spec" quiz="ai-spec">
+
+## Outcome
+
+You can write a short spec a model can follow, including how you will check the result.
+
+## Theory
+
+"Write the code" is not a spec. A spec names the outcome, the inputs, and the check. Example: `add(left, right)` returns the sum, and `node labs/check.mjs path-02-python-02` must pass.
+
+## Do this
+
+In your learning repo, create `notes/ai-policy.md`. Write a spec for `greet` before you ask any tool to implement it. Then implement it yourself or with help, and run the Python check.
+
+## Next
+
+[Read the diff](/path-ai/02-read-the-diff/).
+
+</LessonFrame>

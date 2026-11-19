@@ -1,40 +1,30 @@
 ---
-title: IDE & editor
-description: What an IDE is, installing VS Code or Cursor, and a sane first workspace.
+title: IDE and editor
+description: Install VS Code or Cursor and run a command in the integrated terminal.
 sidebar:
   order: 2
 ---
 
-## Why
+import LessonFrame from "@ctc/LessonFrame.astro";
 
-Data engineers live in files: SQL, Python, YAML, and config. An **IDE** (integrated development environment) is where you edit, run, and debug that work.
+<LessonFrame lesson="path-00-setup/ide-and-editor" quiz="path0-editor">
 
-## Concept
+## Outcome
 
-- **VS Code** — free, huge extension ecosystem; common in industry.
-- **Cursor** — VS Code–compatible editor with AI built in; many engineers use it daily.
-- **Terminal** inside the editor runs Git, Docker, and Python without context-switching.
+You can open this repo and run `git status` in the editor terminal.
 
-## Do
+## Theory
+
+An editor changes files. A terminal runs programs. VS Code is free. Cursor is a VS Code-style editor with AI built in. Either one is enough. Affiliate details, if a link is tracked later, stay on [Tools we use](/path-00-setup/tools-we-use/).
+
+## Do this
 
 1. Install [VS Code](https://code.visualstudio.com/) or [Cursor](https://cursor.com/).
-2. Install the **Python** and **Docker** extensions (either editor).
-3. Open the cloned `codetocareer` folder as your workspace root.
-4. Open the integrated terminal and run `git status`—you should see the repo state.
+2. Install the Python and Docker extensions.
+3. Open the repo and run `git status` in the terminal.
 
-## AI prompt card
+## Next
 
-> I am new to data engineering. List the 5 VS Code/Cursor extensions I should install first and what each does in one sentence. No paid extensions.
+[Git and GitHub](/path-00-setup/git-and-github/).
 
-## Exercise
-
-Create an empty file `labs/exercises/path-02-python-01/hello.py` that prints `Hello, DE101`. Run it with `python hello.py` from that directory.
-
-## Check
-
-- What is the difference between an editor and a terminal?
-- Where do you see Git branch name in VS Code/Cursor?
-
-## Portfolio hook
-
-Screenshot or describe your editor layout in your learning log (optional). Commit `hello.py` when it runs.
+</LessonFrame>

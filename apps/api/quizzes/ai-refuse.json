@@ -1,0 +1,16 @@
+{
+  "id": "ai-refuse",
+  "title": "Refuse bad code",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "When should you reject a suggestion?",
+      "choices": [
+        "You cannot explain it or the tests fail",
+        "It was fast",
+        "It uses a function"
+      ],
+      "answer": 0
+    }
+  ]
+}

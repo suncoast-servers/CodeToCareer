@@ -3,10 +3,10 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "predev": "node scripts/sync-content.mjs",
+    "predev": "node scripts/write-learner-config.mjs && node scripts/publish-quizzes.mjs && node scripts/sync-content.mjs",
     "dev": "astro dev",
     "start": "astro dev",
-    "prebuild": "node scripts/sync-content.mjs",
+    "prebuild": "node scripts/write-learner-config.mjs && node scripts/publish-quizzes.mjs && node scripts/sync-content.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"

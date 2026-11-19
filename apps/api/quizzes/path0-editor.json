@@ -1,0 +1,16 @@
+{
+  "id": "path0-editor",
+  "title": "Editor",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What runs git and python commands?",
+      "choices": [
+        "The terminal",
+        "A screenshot",
+        "The certificate page"
+      ],
+      "answer": 0
+    }
+  ]
+}

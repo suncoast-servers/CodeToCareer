@@ -1,0 +1,50 @@
+<section class="ctc-panel" data-verify>
+	<h2>Look up a certificate</h2>
+	<p class="ctc-note">Paste the id from the issue command. The signature is checked in your browser.</p>
+	<input data-verify-id type="text" placeholder="certificate id" />
+	<button type="button" data-verify-go>Verify</button>
+	<p class="ctc-result" data-verify-out></p>
+</section>
+
+<script>
+	function pemToBytes(pem) {
+		const body = pem.replace(/-----BEGIN PUBLIC KEY-----/, "").replace(/-----END PUBLIC KEY-----/, "").replace(/\s/g, "");
+		const binary = atob(body);
+		const bytes = new Uint8Array(binary.length);
+		for (let ni = 0; ni < binary.length; ni += 1) bytes[ni] = binary.charCodeAt(ni);
+		return bytes;
+	}
+
+	const button = document.querySelector("[data-verify-go]");
+	const output = document.querySelector("[data-verify-out]");
+	const input = document.querySelector("[data-verify-id]");
+	const params = new URLSearchParams(location.search);
+	if (params.get("id") && input) input.value = params.get("id");
+
+	button?.addEventListener("click", async () => {
+		const id = input.value.trim();
+		if (!id) return;
+		output.textContent = "Checking…";
+		const response = await fetch(`/certificates/issued/${encodeURIComponent(id)}.json`);
+		if (!response.ok) {
+			output.textContent = "No certificate with that id.";
+			return;
+		}
+		const issued = await response.json();
+		const keyPem = await (await fetch("/certificates/public.pem")).text();
+		const key = await crypto.subtle.importKey(
+			"spki",
+			pemToBytes(keyPem),
+			{ name: "Ed25519" },
+			false,
+			["verify"],
+		);
+		const signature = Uint8Array.from(atob(issued.signature), (char) => char.charCodeAt(0));
+		const data = new TextEncoder().encode(JSON.stringify(issued.record));
+		const ok = await crypto.subtle.verify({ name: "Ed25519" }, key, signature, data);
+		const record = issued.record;
+		output.textContent = ok
+			? `${record.learner}, ${record.title} (${record.trackId}), issued ${record.issuedAt}. Signature matches.`
+			: "Signature does not match. Do not trust this file.";
+	});
+</script>

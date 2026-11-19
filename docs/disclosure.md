@@ -10,9 +10,24 @@
 
 | Vendor | Program status | Notes |
 |--------|----------------|--------|
-| Cursor | TBD | Editor |
-| Anthropic (Claude) | TBD | AI assistant |
-| Docker | TBD | Usually no affiliate |
+| Cursor | Not enrolled | Editor. Link on the tools page is the public site until a tracked URL is added here. |
+| Anthropic (Claude) | Not enrolled | Assistant |
+| OpenAI (Codex) | Not enrolled | Assistant |
+| Docker | Not enrolled | Labs. Usually no affiliate. |
+
+Do not invent affiliate codes. When a program approves this project, replace the tools-page URL and mark the link sponsored.
+
+## Ads
+
+Leave ads off until a stranger can finish a checkpoint from the homepage. Set `PUBLIC_ADS_ENABLED=true` and `PUBLIC_ADS_CLIENT` only then, and only the marketing homepage loads the ad script. Lesson pages stay ad-free.
+
+## YouTube
+
+Shorts live beside lessons and link back to the free page. Monetize the channel, not the lesson. Scripts are in `video-scripts/`.
+
+## Analytics
+
+Set `PUBLIC_PLAUSIBLE_DOMAIN` to load Plausible. Leave it empty to ship with no analytics.
 
 ## Optional contributions
 

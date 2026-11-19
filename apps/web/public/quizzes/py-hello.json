@@ -1,0 +1,15 @@
+{
+  "id": "py-hello",
+  "title": "Print",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Which call prints text in Python 3?",
+      "choices": [
+        "echo()",
+        "print()",
+        "console.log()"
+      ]
+    }
+  ]
+}

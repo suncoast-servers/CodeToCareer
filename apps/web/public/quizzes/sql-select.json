@@ -1,0 +1,15 @@
+{
+  "id": "sql-select",
+  "title": "SELECT",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Which clause chooses columns?",
+      "choices": [
+        "FROM",
+        "SELECT",
+        "WHERE"
+      ]
+    }
+  ]
+}

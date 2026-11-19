@@ -1,0 +1,31 @@
+---
+title: SELECT
+description: Read columns and count rows in lab.customers.
+sidebar:
+  order: 1
+---
+
+import LessonFrame from "@ctc/LessonFrame.astro";
+
+<LessonFrame lesson="path-03-sql/01-select" quiz="sql-select" lab="path-03-sql-01">
+
+## Outcome
+
+You can list emails, count customers, and insert a row without creating a duplicate email.
+
+## Theory
+
+`SELECT` chooses columns. `FROM` chooses the table. `COUNT(*)` counts rows. `INSERT` adds a row. `ON CONFLICT DO NOTHING` means a second insert of the same email is skipped because `email` is unique.
+
+## Do this
+
+1. Start the core Docker lab.
+2. Edit `labs/exercises/path-03-sql-01/queries.sql`.
+3. Run the statements in Postgres.
+4. Run `node labs/check.mjs path-03-sql-01`.
+
+## Next
+
+[WHERE](/path-03-sql/02-where/).
+
+</LessonFrame>

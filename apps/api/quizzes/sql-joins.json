@@ -1,0 +1,16 @@
+{
+  "id": "sql-joins",
+  "title": "Joins",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "An INNER JOIN returns rows that...",
+      "choices": [
+        "Match the join condition in both tables",
+        "Exist only in the left table",
+        "Ignore keys"
+      ],
+      "answer": 0
+    }
+  ]
+}

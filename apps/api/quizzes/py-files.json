@@ -1,0 +1,16 @@
+{
+  "id": "py-files",
+  "title": "Files",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Why use a with block when opening a file?",
+      "choices": [
+        "It closes the file even if something fails",
+        "It skips reading the file",
+        "It commits the file to git"
+      ],
+      "answer": 0
+    }
+  ]
+}

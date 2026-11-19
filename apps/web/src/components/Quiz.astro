@@ -1,0 +1,82 @@
+---
+const { id } = Astro.props;
+---
+
+<section class="ctc-panel" data-quiz={id}>
+	<h2>Checkpoint</h2>
+	<p class="ctc-note">Lessons stay free. This check is here so the idea sticks.</p>
+	<div data-quiz-body>Loading questions…</div>
+	<div class="ctc-actions">
+		<button type="button" data-quiz-submit>Check answers</button>
+	</div>
+	<p class="ctc-result" data-quiz-result></p>
+</section>
+
+<script>
+	const roots = document.querySelectorAll("[data-quiz]");
+	for (const root of roots) {
+		const quizId = root.getAttribute("data-quiz");
+		const body = root.querySelector("[data-quiz-body]");
+		const result = root.querySelector("[data-quiz-result]");
+		const button = root.querySelector("[data-quiz-submit]");
+		if (!quizId || !body || !result || !button) continue;
+
+		const response = await fetch(`/quizzes/${quizId}.json`);
+		if (!response.ok) {
+			body.textContent = "Checkpoint file is missing.";
+			continue;
+		}
+		const quiz = await response.json();
+		body.innerHTML = "";
+		for (const question of quiz.questions) {
+			const block = document.createElement("fieldset");
+			const legend = document.createElement("legend");
+			legend.textContent = question.prompt;
+			block.append(legend);
+			const choices = document.createElement("div");
+			choices.className = "ctc-choices";
+			question.choices.forEach((choice, index) => {
+				const label = document.createElement("label");
+				const input = document.createElement("input");
+				input.type = "radio";
+				input.name = `${quizId}-${question.id}`;
+				input.value = String(index);
+				label.append(input, document.createTextNode(choice));
+				choices.append(label);
+			});
+			block.append(choices);
+			body.append(block);
+		}
+
+		button.addEventListener("click", async () => {
+			const answers = {};
+			for (const question of quiz.questions) {
+				const picked = root.querySelector(
+					`input[name="${quizId}-${question.id}"]:checked`,
+				);
+				answers[question.id] = picked ? Number(picked.value) : -1;
+			}
+			const config = window.__CTC__ || {};
+			const endpoint = config.apiBase
+				? `${config.apiBase.replace(/\/$/, "")}/api/quiz/check`
+				: "/api/quiz/check";
+			try {
+				const check = await fetch(endpoint, {
+					method: "POST",
+					headers: { "content-type": "application/json" },
+					body: JSON.stringify({ id: quizId, answers }),
+				});
+				if (!check.ok) throw new Error("check failed");
+				const payload = await check.json();
+				result.textContent = `${payload.score} of ${payload.total} correct.`;
+				localStorage.setItem(
+					`ctc-quiz-${quizId}`,
+					JSON.stringify({ score: payload.score, total: payload.total }),
+				);
+			} catch {
+				result.textContent =
+					"The checker is offline. Run the lab check on your machine, then try again when the API is up.";
+			}
+		});
+	}
+</script>

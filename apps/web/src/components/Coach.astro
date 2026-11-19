@@ -1,0 +1,51 @@
+---
+const { lesson = "" } = Astro.props;
+---
+
+<section class="ctc-panel" data-coach data-lesson={lesson}>
+	<h2>Stuck?</h2>
+	<p class="ctc-note">
+		The coach explains errors and gives hints. It will not hand you the finished answer.
+	</p>
+	<label>
+		What are you trying, and what happened?
+		<textarea class="ctc-code" data-coach-note></textarea>
+	</label>
+	<label>
+		Paste the code or error (optional)
+		<textarea class="ctc-code" data-coach-code></textarea>
+	</label>
+	<button type="button" data-coach-ask>Ask for a hint</button>
+	<p class="ctc-result" data-coach-reply></p>
+</section>
+
+<script>
+	const panels = document.querySelectorAll("[data-coach]");
+	for (const panel of panels) {
+		const ask = panel.querySelector("[data-coach-ask]");
+		const reply = panel.querySelector("[data-coach-reply]");
+		ask?.addEventListener("click", async () => {
+			const config = window.__CTC__ || {};
+			const endpoint = config.apiBase
+				? `${config.apiBase.replace(/\/$/, "")}/api/coach`
+				: "/api/coach";
+			reply.textContent = "Thinking…";
+			try {
+				const response = await fetch(endpoint, {
+					method: "POST",
+					headers: { "content-type": "application/json" },
+					body: JSON.stringify({
+						lesson: panel.getAttribute("data-lesson"),
+						message: panel.querySelector("[data-coach-note]")?.value ?? "",
+						code: panel.querySelector("[data-coach-code]")?.value ?? "",
+					}),
+				});
+				const payload = await response.json();
+				reply.textContent = payload.reply || "No hint returned.";
+			} catch {
+				reply.textContent =
+					"The coach is offline. Re-read the theory, change one line, and run it again.";
+			}
+		});
+	}
+</script>

@@ -1,0 +1,8 @@
+{
+  "file": "queries.sql",
+  "mustInclude": [
+    "select email from lab.customers",
+    "select count(*) from lab.customers",
+    "on conflict (email) do nothing"
+  ]
+}

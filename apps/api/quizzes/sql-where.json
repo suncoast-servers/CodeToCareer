@@ -1,0 +1,16 @@
+{
+  "id": "sql-where",
+  "title": "WHERE",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Which clause keeps only matching rows?",
+      "choices": [
+        "WHERE",
+        "ORDER BY",
+        "SELECT"
+      ],
+      "answer": 0
+    }
+  ]
+}

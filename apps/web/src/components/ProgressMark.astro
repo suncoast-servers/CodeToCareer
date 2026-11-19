@@ -1,0 +1,100 @@
+---
+const { lesson = "" } = Astro.props;
+---
+
+<section class="ctc-panel" data-progress data-lesson={lesson}>
+	<h2>Your place</h2>
+	<p class="ctc-note" data-progress-status>
+		Reading is always free and does not need an account. Marking done saves progress in this browser.
+	</p>
+	<div class="ctc-actions">
+		<button type="button" data-progress-done>Mark lesson done</button>
+		<button type="button" class="secondary" data-progress-signin hidden>Sign in</button>
+	</div>
+</section>
+
+<script>
+	const blocks = document.querySelectorAll("[data-progress]");
+	const config = window.__CTC__ || {};
+
+	function learnerId() {
+		const key = "ctc-learner-id";
+		let id = localStorage.getItem(key);
+		if (!id) {
+			id = crypto.randomUUID();
+			localStorage.setItem(key, id);
+		}
+		return id;
+	}
+
+	async function clerkToken() {
+		if (!config.clerkPublishableKey || !window.Clerk) return "";
+		try {
+			await window.Clerk.load();
+			return (await window.Clerk.session?.getToken()) || "";
+		} catch {
+			return "";
+		}
+	}
+
+	if (config.clerkPublishableKey && !document.querySelector("script[data-ctc-clerk]")) {
+		const script = document.createElement("script");
+		script.src = "https://cdn.jsdelivr.net/npm/@clerk/clerk-js@5/dist/clerk.browser.js";
+		script.async = true;
+		script.dataset.ctcClerk = "1";
+		script.setAttribute("data-clerk-publishable-key", config.clerkPublishableKey);
+		script.crossOrigin = "anonymous";
+		document.head.append(script);
+	}
+
+	for (const block of blocks) {
+		const lesson = block.getAttribute("data-lesson") || location.pathname;
+		const status = block.querySelector("[data-progress-status]");
+		const done = block.querySelector("[data-progress-done]");
+		const signIn = block.querySelector("[data-progress-signin]");
+		const storeKey = `ctc-lesson-${lesson}`;
+		if (localStorage.getItem(storeKey) === "done" && status) {
+			status.textContent = "Marked done on this browser.";
+		}
+		if (config.clerkPublishableKey && signIn) signIn.hidden = false;
+
+		signIn?.addEventListener("click", async () => {
+			if (!window.Clerk) {
+				if (status) status.textContent = "Sign-in script is still loading. Try again in a second.";
+				return;
+			}
+			await window.Clerk.load();
+			window.Clerk.openSignIn();
+		});
+
+		done?.addEventListener("click", async () => {
+			localStorage.setItem(storeKey, "done");
+			if (status) status.textContent = "Marked done on this browser.";
+			const endpoint = config.apiBase
+				? `${config.apiBase.replace(/\/$/, "")}/api/progress`
+				: "/api/progress";
+			const token = await clerkToken();
+			try {
+				const response = await fetch(endpoint, {
+					method: "POST",
+					headers: {
+						"content-type": "application/json",
+						...(token ? { authorization: `Bearer ${token}` } : {}),
+					},
+					body: JSON.stringify({
+						learnerId: learnerId(),
+						lesson,
+						status: "done",
+					}),
+				});
+				if (response.ok && status) {
+					status.textContent = token
+						? "Saved to your account."
+						: "Saved on this browser. Sign-in is optional and keeps the same progress on another device when it is configured.";
+				}
+			} catch {
+				/* local mark already stored */
+			}
+		});
+	}
+</script>

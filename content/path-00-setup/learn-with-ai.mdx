@@ -1,47 +1,28 @@
 ---
 title: Learn with AI
-description: Use AI assistants efficiently—and still understand what you ship.
+description: Use an assistant for errors and still be able to explain the code.
 sidebar:
   order: 5
 ---
 
-## Why
+import LessonFrame from "@ctc/LessonFrame.astro";
 
-Many working data engineers use AI daily. The skill is not "prompt and paste"—it is **faster iteration with verification**.
+<LessonFrame lesson="path-00-setup/learn-with-ai" quiz="path0-ai">
 
-## Concept
+## Outcome
 
-**Do**
+You have a personal rule for what you will and will not accept from an assistant.
 
-- Ask AI to explain errors and tradeoffs.
-- Generate **tests** and **boilerplate**, then edit.
-- Request refactors you can review in a diff.
+## Theory
 
-**Do not**
+Ask for explanations, tests, and small edits. Do not ship code you cannot explain. Do not paste secrets or customer data into a chat. "The model said it works" is not a test run.
 
-- Ship code you cannot explain in an interview.
-- Paste production secrets or customer data into tools.
-- Skip running pipelines because AI "said it works".
+## Do this
 
-## Do
+Break `hello.py` on purpose. Ask for a diagnosis before a fix. Write `notes/ai-policy.md` in your own words: what was wrong, and two things you will never paste into a tool.
 
-1. Pick a tiny script (for example `hello.py`).
-2. Ask your assistant: "Add a type hint and a one-line docstring; explain why."
-3. Break the script on purpose; ask for diagnosis **before** accepting a fix.
+## Next
 
-## AI prompt card
+[Tools we use](/path-00-setup/tools-we-use/), then the longer drills in [AI-assisted practice](/path-ai/).
 
-> I'm a beginner data engineer. When I use AI on SQL or Python homework, what checklist should I run before I commit? Format as a short markdown checklist.
-
-## Exercise
-
-Intentionally introduce a syntax error in `hello.py`, fix it with AI help, and write **in your own words** what was wrong in `notes/ai-policy.md`.
-
-## Check
-
-- Name two interview questions you could answer about code AI helped write.
-- What should you never put in a chat window?
-
-## Portfolio hook
-
-Add an "How I use AI" section to your portfolio README (see template).
+</LessonFrame>

@@ -1,0 +1,18 @@
+---
+title: Verify a certificate
+description: Check a signed Code to Career completion record in the browser.
+sidebar:
+  order: 2
+---
+
+import VerifyCert from "@ctc/VerifyCert.astro";
+
+A certificate is a signed JSON file. The public key ships with the site. The private key stays off git.
+
+<VerifyCert />
+
+Issue one locally after the labs pass:
+
+```bash
+node certificates/issue.mjs ctc-coder-foundations "Your Name"
+```

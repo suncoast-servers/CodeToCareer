@@ -1,0 +1,16 @@
+{
+  "id": "sql-group",
+  "title": "GROUP BY",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "COUNT(*) with GROUP BY counts...",
+      "choices": [
+        "Rows in each group",
+        "Tables in the database",
+        "Columns in the SELECT"
+      ],
+      "answer": 0
+    }
+  ]
+}

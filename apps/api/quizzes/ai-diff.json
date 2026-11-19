@@ -1,0 +1,16 @@
+{
+  "id": "ai-diff",
+  "title": "Diff",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What do you read before keeping AI changes?",
+      "choices": [
+        "The diff",
+        "Only the success message",
+        "Nothing"
+      ],
+      "answer": 0
+    }
+  ]
+}

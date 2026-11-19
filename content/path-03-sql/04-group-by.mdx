@@ -1,0 +1,28 @@
+---
+title: GROUP BY
+description: Count orders per email.
+sidebar:
+  order: 4
+---
+
+import LessonFrame from "@ctc/LessonFrame.astro";
+
+<LessonFrame lesson="path-03-sql/04-group-by" quiz="sql-group" lab="path-03-sql-04">
+
+## Outcome
+
+You can count orders per email.
+
+## Theory
+
+`GROUP BY email` makes one pile per email. `COUNT(*)` counts the rows in each pile. Every selected column is either in the `GROUP BY` or inside an aggregate like `COUNT`.
+
+## Do this
+
+Edit `labs/exercises/path-03-sql-04/queries.sql` and run the lab check. Run the query in Postgres too.
+
+## Next
+
+[Batch ETL capstone](/path-09-capstones/batch-etl/).
+
+</LessonFrame>

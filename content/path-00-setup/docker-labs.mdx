@@ -1,24 +1,23 @@
 ---
 title: Docker for labs
-description: Install Docker, run the core lab stack, and verify Postgres and MinIO.
+description: Start the shared Postgres lab with Docker Compose.
 sidebar:
   order: 4
 ---
 
-## Why
+import LessonFrame from "@ctc/LessonFrame.astro";
 
-You cannot learn pipelines without running databases and object storage. Docker lets everyone run the **same stack** without manual installs.
+<LessonFrame lesson="path-00-setup/docker-labs" quiz="path0-docker">
 
-## Concept
+## Outcome
 
-- **Image** — blueprint for a service (Postgres, MinIO).
-- **Container** — running instance of an image.
-- **Compose** — YAML file that starts multiple services together.
+Postgres from the core lab answers `SELECT version();`.
 
-## Do
+## Theory
 
-1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) (Windows/Mac) or Docker Engine on Linux.
-2. From the repo root:
+An image is a blueprint. A container is a running copy. Compose starts the services listed in a YAML file so your machine matches the lesson.
+
+## Do this
 
 ```bash
 cd labs/compose/core
@@ -27,24 +26,10 @@ docker compose --profile core up -d
 docker compose ps
 ```
 
-3. Postgres: host `localhost`, port `5432`, user/db from `.env.example`.
-4. MinIO console: `http://localhost:9001` (credentials in `.env.example`).
+Connect to Postgres on `localhost:5432` using `.env.example` and run `SELECT version();`. Stop the stack later with `docker compose --profile core stop` (that keeps your data volumes).
 
-## AI prompt card
+## Next
 
-> `docker compose ps` shows a container restarting. List diagnostic steps in order and which logs to read first.
+[Learn with AI](/path-00-setup/learn-with-ai/).
 
-## Exercise
-
-Connect to Postgres with any client (`psql`, DBeaver, VS Code SQL extension) and run `SELECT version();`.
-
-Create a MinIO bucket named `de101-lab` via the console.
-
-## Check
-
-- What command stops the stack without deleting volumes?
-- Why do we use `.env` instead of putting passwords in `docker-compose.yml`?
-
-## Portfolio hook
-
-Record the exact commands you used to start and stop the lab stack in `notes/path-0-docker.md`.
+</LessonFrame>

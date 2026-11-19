@@ -1,0 +1,16 @@
+{
+  "id": "path0-tools",
+  "title": "Tools",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Where is the affiliate allowlist?",
+      "choices": [
+        "docs/disclosure.md",
+        "A private email",
+        "The quiz answers"
+      ],
+      "answer": 0
+    }
+  ]
+}

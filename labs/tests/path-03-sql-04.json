@@ -1,0 +1,4 @@
+{
+  "file": "queries.sql",
+  "mustInclude": ["group by", "count(*)"]
+}

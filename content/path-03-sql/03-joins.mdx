@@ -1,0 +1,30 @@
+---
+title: INNER JOIN
+description: Combine orders and customers on email.
+sidebar:
+  order: 3
+---
+
+import LessonFrame from "@ctc/LessonFrame.astro";
+
+<LessonFrame lesson="path-03-sql/03-joins" quiz="sql-joins" lab="path-03-sql-03">
+
+## Outcome
+
+You can show each order's email and amount by joining two tables.
+
+## Theory
+
+One table rarely has the whole story. An `INNER JOIN` keeps rows that match in both tables. The `ON` clause is the match rule. Here both tables store `email`.
+
+## Do this
+
+1. Run `labs/exercises/path-03-sql-03/setup.sql` in Postgres.
+2. Write the join in `queries.sql`.
+3. Run the lab check.
+
+## Next
+
+[GROUP BY](/path-03-sql/04-group-by/).
+
+</LessonFrame>

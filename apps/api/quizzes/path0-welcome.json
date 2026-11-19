@@ -1,0 +1,26 @@
+{
+  "id": "path0-welcome",
+  "title": "Welcome",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "What is this site for?",
+      "choices": [
+        "A random list of videos",
+        "An ordered path with practice",
+        "A paid bootcamp"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "q2",
+      "prompt": "Where do the lab files live?",
+      "choices": [
+        "labs/compose",
+        "only on YouTube",
+        "inside the certificate"
+      ],
+      "answer": 0
+    }
+  ]
+}

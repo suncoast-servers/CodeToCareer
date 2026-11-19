@@ -5,6 +5,9 @@ apps/web/dist/
 apps/web/src/content/docs/
 .env
 .env.local
+certificates/keys/private.pem
+apps/api/data/
+apps/api/node_modules/
 *.log
 .DS_Store
 Thumbs.db

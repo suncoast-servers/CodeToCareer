@@ -1,0 +1,30 @@
+---
+title: Read the diff
+description: Keep only changes you can explain line by line.
+sidebar:
+  order: 2
+---
+
+import LessonFrame from "@ctc/LessonFrame.astro";
+
+<LessonFrame lesson="path-ai/02-read-the-diff" quiz="ai-diff">
+
+## Outcome
+
+You can use `git diff` to decide what to keep.
+
+## Theory
+
+A model edits files. `git diff` shows those edits. If a line is a surprise, you do not understand the change yet. Ask what it does, or delete it and try a smaller request.
+
+## Do this
+
+1. Change `hello.py` with an assistant, or by hand.
+2. Run `git diff`.
+3. In `notes/ai-policy.md`, paste two lines you kept and one sentence on why each is correct.
+
+## Next
+
+[Refuse bad code](/path-ai/03-refuse-bad-code/).
+
+</LessonFrame>

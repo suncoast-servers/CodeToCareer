@@ -1,0 +1,30 @@
+---
+import Coach from "./Coach.astro";
+import ProgressMark from "./ProgressMark.astro";
+import Quiz from "./Quiz.astro";
+import VideoSlot from "./VideoSlot.astro";
+
+const { lesson, quiz = "", lab = "", youtube = "" } = Astro.props;
+---
+
+<div class="ctc-frame">
+	<VideoSlot youtube={youtube} />
+	<ProgressMark lesson={lesson} />
+	<slot />
+	{
+		lab && (
+			<section class="ctc-panel">
+				<h2>Lab check</h2>
+				<p>
+					From the repo root, after you edit the exercise:
+				</p>
+				<pre><code>node labs/check.mjs {lab}</code></pre>
+				<p class="ctc-note">
+					Pass the same command with <code>--solution</code> only after you have tried. Solutions are for when you are stuck, then you re-do the exercise from memory.
+				</p>
+			</section>
+		)
+	}
+	{quiz && <Quiz id={quiz} />}
+	<Coach lesson={lesson} />
+</div>

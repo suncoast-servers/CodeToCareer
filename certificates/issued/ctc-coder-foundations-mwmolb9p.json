@@ -1,0 +1,16 @@
+{
+  "record": {
+    "id": "ctc-coder-foundations-mwmolb9p",
+    "learner": "Sample Learner",
+    "trackId": "ctc-coder-foundations",
+    "title": "Coder Foundations",
+    "requirements": [
+      "Complete Path 0",
+      "Complete path-02-python exercises",
+      "Portfolio README"
+    ],
+    "issuedAt": "2026-11-18T22:16:45.901Z",
+    "issuer": "Code to Career"
+  },
+  "signature": "j7/ZGvIsrr2fHPOutXaFvy8nrp+fiEW8kQA8tcc+XJlqv1GVn+hdbJ5U0n8t9ZMNy4vy2ryl10m8uhjeRO6hCw=="
+}

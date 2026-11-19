@@ -1,0 +1,53 @@
+---
+import Default from "@astrojs/starlight/components/Head.astro";
+
+const route = Astro.locals.starlightRoute;
+const data = route?.entry?.data;
+const site = Astro.site?.href ?? "https://codetocareer.org/";
+const pathname = route?.pathname ?? "/";
+const url = new URL(pathname, site).href;
+const plausible = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN as string | undefined;
+const ads = import.meta.env.PUBLIC_ADS_ENABLED === "true";
+const adsClient = import.meta.env.PUBLIC_ADS_CLIENT as string | undefined;
+const isMarketing = pathname === "/";
+
+const learningResource = data?.title
+	? JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "LearningResource",
+			name: data.title,
+			description: data.description,
+			url,
+			isAccessibleForFree: true,
+			learningResourceType: pathname === "/" ? "course" : "lesson",
+			provider: {
+				"@type": "Organization",
+				name: "Code to Career",
+				url: site,
+			},
+		})
+	: "";
+---
+
+<Default {...Astro.props}><slot /></Default>
+<link rel="preconnect" href="https://fonts.bunny.net" />
+<link
+	href="https://fonts.bunny.net/css?family=ibm-plex-sans:400,600|ibm-plex-mono:400"
+	rel="stylesheet"
+/>
+<script is:inline src="/learner-config.js"></script>
+{learningResource && <script type="application/ld+json" set:html={learningResource} />}
+{
+	plausible && (
+		<script
+			defer
+			data-domain={plausible}
+			src="https://plausible.io/js/script.js"
+		/>
+	)
+}
+{
+	ads && isMarketing && adsClient && (
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
+	)
+}

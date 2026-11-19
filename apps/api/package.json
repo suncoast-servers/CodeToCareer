@@ -1,0 +1,11 @@
+{
+  "name": "codetocareer-api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "@clerk/backend": "^1.21.0"
+  }
+}
